@@ -12,6 +12,6 @@ ENV PYTHONUNBUFFERED=1
 
 COPY --from=base /app .
 
-EXPOSE 8080
+RUN python manage.py migrate
 
-CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8080"]
+EXPOSE 8080
